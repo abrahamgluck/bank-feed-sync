@@ -1,8 +1,9 @@
+const express = require('express');
 const axios = require('axios');
+const app = express();
 
 app.get('/test-token', async (req, res) => {
   try {
-    // 👇 This will print your env vars to the console/logs
     console.log('🔍 ENV Vars:', {
       FINICITY_PARTNER_ID: process.env.FINICITY_PARTNER_ID,
       FINICITY_PARTNER_SECRET: process.env.FINICITY_PARTNER_SECRET,
@@ -31,3 +32,5 @@ app.get('/test-token', async (req, res) => {
     res.status(500).json({ error: 'Failed to get token' });
   }
 });
+
+module.exports = app;
